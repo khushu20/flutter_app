@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(home: Scaffold(appBar: AppBar(title: Text("DashBoard")
+  ),
+  body: Center(child: Container(
+    child: Column(children: [Text("data"),Text("data")]),
+   decoration: BoxDecoration(borderRadius: BorderRadius.all(
+                    Radius.circular(10)),color: Colors.red),
+  //color: Colors.black,
+  width: 50,
+  height: 50,
+  
+  ))
+  ,)));
 }
 
 class MyApp extends StatelessWidget {

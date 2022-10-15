@@ -1,18 +1,60 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: Scaffold(appBar: AppBar(title: Text("DashBoard")
-  ),
-  body: Center(child: Container(
-    child: Column(children: [Text("data"),Text("data")]),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+       backgroundColor: Colors.cyan,
+        
+          appBar: AppBar(
+            title: Text("My Page"),
+            backgroundColor: Colors.brown,
+          ),
+          body: Center(
+          
+              child: Container(
+               // color: Colors.amberAccent,
+                
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(
+                  
+                  child: Center(
+                    child: Text("khushboo"),
+                  ),
+                  height: 100,
+                  width: 100,
+                  //color: Colors.blue,
+                  
    decoration: BoxDecoration(borderRadius: BorderRadius.all(
                     Radius.circular(10)),color: Colors.red),
-  //color: Colors.black,
-  width: 50,
-  height: 50,
-  
-  ))
-  ,)));
+                ),
+                Container(
+                  
+   decoration: BoxDecoration(borderRadius: BorderRadius.all(
+                    Radius.circular(10)),color: Colors.orange),
+                  child: Center(child: Text("Cgg")),
+                  height: 100,
+                  width: 100,
+                  //color: Colors.orange,
+                  
+                ),
+                Container(
+                  
+   decoration: BoxDecoration(borderRadius: BorderRadius.all(
+                    Radius.circular(10)),color: Colors.green),
+                  child: Center(child: Text("Flutter")),
+                  height: 100,
+                  width: 100,
+                //  color: Colors.green,
+                )
+              ],
+            ),
+          ))),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

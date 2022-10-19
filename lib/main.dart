@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_container/login_page.dart';
+
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MyApp());
+  /*  MaterialApp(
       home: Scaffold(
        backgroundColor: Colors.cyan,
         
@@ -11,9 +13,18 @@ void main() {
             backgroundColor: Colors.brown,
           ),
           body: Center(
-          
-              child: Container(
-               // color: Colors.amberAccent,
+            child: Container(child: Column(children: [Container(child:Column(
+
+              children: [ Padding(
+                          padding: EdgeInsets.all(15), //apply padding to all four sides
+                          child: Text("mainAxisAlignment: MainAxisAlignment.spaceBetween"),
+                        )
+              , Padding(
+                          padding: EdgeInsets.all(15), //apply padding to all four sides
+                          child: Text("crossAxisAlignment: CrossAxisAlignment.end"),
+                        )],),),
+              Container(
+             
                 
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,10 +63,26 @@ void main() {
                 )
               ],
             ),
-          ))),
-    ),
-  );
+          )],)),
+          )),
+    ), */
 }
+
+var text = new RichText(
+  text: new TextSpan(
+    // Note: Styles for TextSpans must be explicitly defined.
+    // Child text spans will inherit styles from parent
+    style: new TextStyle(
+      fontSize: 14.0,
+      color: Colors.black,
+    ),
+    children: <TextSpan>[
+      new TextSpan(text: 'Hello'),
+      new TextSpan(
+          text: 'World', style: new TextStyle(fontWeight: FontWeight.bold)),
+    ],
+  ),
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -75,9 +102,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginPage(),
     );
   }
 }

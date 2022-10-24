@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_container/login.dart';
 import 'package:flutter_container/login_page.dart';
+import 'package:flutter_container/routes/app_pages.dart';
+import 'package:flutter_container/routes/app_routes.dart';
+import 'package:flutter_container/signup.dart';
 
 
 void main() {
@@ -92,6 +96,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+       initialRoute: AppRoutes.listView,
+      routes: AppPages.routes
+  ,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -104,7 +111,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: LoginPage(),
+     // home: MyApp(),
     );
   }
 }

@@ -1,6 +1,15 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+
+class UserDetailsData {
+  String? username;
+  String? password;
+
+  UserDetailsData({this.username, this.password});
+}
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -12,8 +21,9 @@ class LoginForm extends StatefulWidget {
 class _MyWidgetState extends State<LoginForm> {
   TextEditingController _userName = TextEditingController();
   TextEditingController _password = TextEditingController();
- 
-  String p = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+
+  String p =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +59,21 @@ class _MyWidgetState extends State<LoginForm> {
               )),
         ),
         GestureDetector(
-          onTap: validation,
+          onTap:(() {
+            if(validation()){
+              Navigator.pop(
+                      context,
+                      UserDetailsData(
+                          username: _userName.text,
+                          password: _password.text),
+                    );
+            }
+          }),
           child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0),color: Colors.blue),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0), color: Colors.blue),
             height: 50,
             width: 100,
-          
             child: Center(child: Text("Login")),
           ),
         ),
@@ -62,19 +81,17 @@ class _MyWidgetState extends State<LoginForm> {
     );
   }
 
-  validation() {
+  bool validation() {
     if (_userName.text.isEmpty) {
       showAlert("please enter username ");
-      
-    } else if(!RegExp(r'^[a-z A-Z]+$').hasMatch(_userName.text)){
+    } else if (!RegExp(r'^[a-z A-Z]+$').hasMatch(_userName.text)) {
       showAlert("please enter valid username ");
-
-    }
-    else if (_password.text.isEmpty || !RegExp(
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-    .hasMatch(_password.text)) {
+    } else if (_password.text.isEmpty ||
+        !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+            .hasMatch(_password.text)) {
       showAlert("please enter password ");
     }
+    return true;
   }
 
   showAlert(String message) {

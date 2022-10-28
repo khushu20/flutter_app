@@ -11,37 +11,47 @@ class UserData extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<UserData> {
-  List<UserDetailsData> userDetailsListData = [];
+  List<Map> userList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
-      appBar: AppBar(
-        backgroundColor: Color(0xFF32937e),
-        title: Text("UserList"),
-      
-      ),
+      appBar: AppBar(backgroundColor: Colors.red, title: Text("UserList")),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),onPressed: () {
-         Navigator.pushNamed(context, AppRoutes.loginform);
-        },),
-      body:  ListView.builder(
-        itemCount: userDetailsListData.length,
-        itemBuilder: (context, index) {
-          final userData = userDetailsListData[index];
-
-          return Users(
-            userDetails: userData,
-            //Implement the call back
-            callBackValue: (userData) {
-              showAlert(userData);
-            },
-          );
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.pushNamed(context, AppRoutes.login);
         },
       ),
+    
+
+      // appBar: AppBar(
+      //   backgroundColor: Color(0xFF32937e),
+      //   title: Text("UserList"),
+
+      // ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: const Icon(Icons.add),onPressed: () {
+      //    Navigator.pushNamed(context, AppRoutes.loginform);
+      //   },),
+      // body:  ListView.builder(
+      //   itemCount: userDetailsListData.length,
+      //   itemBuilder: (context, index) {
+      //     final userData = userDetailsListData[index];
+
+      //     return Users(
+      //       userDetails: userData,
+      //       //Implement the call back
+      //       callBackValue: (userData) {
+      //         showAlert(userData);
+      //       },
+      //     );
+      //   },
+      // ),
     );
   }
-   showAlert(UserDetailsData userDetails) {
+
+  /* showAlert(UserDetailsData userDetails) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -58,6 +68,6 @@ class _MyWidgetState extends State<UserData> {
               )
             ],
           );
-        }); 
-  }
+        });
+  } */
 }

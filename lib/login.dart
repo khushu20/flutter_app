@@ -1,15 +1,10 @@
-import 'dart:html';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-
-class UserDetailsData {
-  String? username;
-  String? password;
-
-  UserDetailsData({this.username, this.password});
-}
+import 'package:flutter_container/routes/app_routes.dart';
+import 'package:flutter_container/user_list_item.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -59,14 +54,15 @@ class _MyWidgetState extends State<LoginForm> {
               )),
         ),
         GestureDetector(
-          onTap:(() {
-            if(validation()){
-              Navigator.pop(
-                      context,
-                      UserDetailsData(
-                          username: _userName.text,
-                          password: _password.text),
-                    );
+          onTap: (() {
+            if (validation()) {
+              UserListBuilder(
+                userName: _userName.text,
+                password: _password.text,
+                callBackValue: (username, password) {
+                  Navigator.pop(context, AppRoutes.userdata);
+                },
+              );
             }
           }),
           child: Container(

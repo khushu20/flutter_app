@@ -10,7 +10,7 @@ import 'package:flutter_container/userdata.dart';
 class AppPages {
   static Map<String, WidgetBuilder> get routes {
     return {
-      AppRoutes.intial: ((context) => GetStart()),
+      AppRoutes.getstart: ((context) => GetStart()),
       AppRoutes.login: ((context) => LoginPage()),
       AppRoutes.sign_up: ((context) => SignUpPage()),
        AppRoutes.listView: ((context) => ListData()),

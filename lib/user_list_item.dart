@@ -2,21 +2,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_container/login.dart';
 
-class Users  extends StatelessWidget {
-  const Users ({super.key, required this.userDetails, required this.callBackValue});
-   final UserDetailsData userDetails;
+class UserListBuilder extends StatelessWidget {
+  const UserListBuilder(
+      {super.key,
+      required this.userName,
+      required this.password,
+      required this.callBackValue});
+
+  final String userName;
+  final String password;
+
   //Create The Callback
-  final Function(UserDetailsData userDetails) callBackValue;
+  final Function(String username, String password) callBackValue;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: () {
-       callBackValue(userDetails);
-    },child: ListTile(
-        title: Text("${userDetails.username}"),
-        subtitle: Text("${userDetails.password}"),
-      ),);
+    return GestureDetector(
+      child: Column(children: [Text(userName), Text(password)]),
+      onTap: (() {
+        //callback
+        callBackValue(userName, password);
+      }),
+    );
   }
 }

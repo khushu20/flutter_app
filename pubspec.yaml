@@ -46,11 +46,11 @@ dev_dependencies:
 flutter_native_splash:
   android: true
   web: true
-  background_image: "assets/splash_screen.png"
+ # background_image: "assets/splash_screen.png"
 
  # color: "#00FF00"
   
-  #image:
+  assets:
   # - assets/splash_screen.png
 
   

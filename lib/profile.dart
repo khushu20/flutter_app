@@ -22,10 +22,10 @@ class _MyWidgetState extends State<ProfileScreen> {
       ),
       body: Column(
         children: [
-          Image.network(jsonResult["image"] ?? "", width: 100, height: 100),
+           Image.network(jsonResult["image"], width: 100, height: 100),
           product_row_component('Name', jsonResult["name"]),
-            product_row_component('Designation', jsonResult["designation"]),
-              product_row_component('Salary', jsonResult["salary"] ),
+             product_row_component('Designation', jsonResult["designation"]),
+               product_row_component('Salary', jsonResult["salary"] ),
                 product_row_component('Maritial Status', jsonResult["married"]),
         ],
       ),
